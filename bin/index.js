@@ -1,34 +1,13 @@
 #!/usr/bin/env node
 
 const program = require('commander');
-
 const print = require('./print');
-const printVersion = require('./printVersion');
-var fs = require('fs');
+const printVersion = require('./print-version');
+const ConfigurationService = require('./configuration-service');
+const FileConf = require('./file-service');
 
-class FileService {
-    writeStringFile(path, content){
-        fs.writeFile(path, content, function(err){
-            if(err) throw err;
-            console.log('File is created successfully');
-        })
-
-    };
-
-    readStringFile(path){
-        var data = fs.readFileSync(path, 'utf-8');
-        console.log(data.toString());
-    };
-
-    exists(path){
-        if (fs.existsSync(path)){
-            console.log('Exists');
-        }
-        else console.log('Doesn\'t exist');
-    };
-}
-
-const newfile = new FileService();
+var configuration = new ConfigurationService();
+var file = new FileConf();
 
 program
     .command('credits')
@@ -43,6 +22,24 @@ program
     .action(function(){
         printVersion();
     })
+
+program
+    .command('exists')
+    .description('Displays current version of the CLI')
+    .action(function(){
+        file.exists('.gh/config');
+    })
+
+program
+    .command('create')
+    .description('Create configuration')
+    .argument('<username>', 'username')
+    .argument('<token>', 'token')
+    .action(function(username, token){
+        configuration.createConfiguration(username, token);
+    })
+
+
 
 program.parse(process.argv);
 
