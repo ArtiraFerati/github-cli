@@ -3,11 +3,9 @@
 const program = require('commander');
 const print = require('./print');
 const printVersion = require('./print-version');
-const ConfigurationService = require('./configuration-service');
-const FileConf = require('./file-service');
+const ConfigurationService = require('./configuration-service')
 
 var configuration = new ConfigurationService();
-var file = new FileConf();
 
 program
     .command('credits')
@@ -21,13 +19,9 @@ program
     .description('Displays current version of the CLI')
     .action(function(){
         printVersion();
-    })
+        const os = require('os');
 
-program
-    .command('exists')
-    .description('Displays current version of the CLI')
-    .action(function(){
-        file.exists('.gh/config');
+        console.log(os.homedir());
     })
 
 program
@@ -38,8 +32,6 @@ program
     .action(function(username, token){
         configuration.createConfiguration(username, token);
     })
-
-
 
 program.parse(process.argv);
 

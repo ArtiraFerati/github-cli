@@ -2,7 +2,7 @@ var fs = require('fs');
 
 class FileService {
     writeStringFile(path, content){
-        fs.writeFile(path, content, function(err){
+        fs.writeFileSync(path, content, function(err){
             if(err) throw err;
             console.log('File is created successfully');
         })
@@ -15,12 +15,7 @@ class FileService {
     };
 
     exists(path){
-        if (fs.existsSync(path)){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return fs.existsSync(path);
     };
 }
 
