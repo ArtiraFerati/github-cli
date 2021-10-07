@@ -3,7 +3,9 @@
 const program = require('commander');
 const print = require('./print');
 const printVersion = require('./print-version');
-const ConfigurationService = require('./configuration-service')
+const ConfigurationService = require('./configuration-service');
+const chalk = require('chalk');
+const boxen = require('boxen');
 
 var configuration = new ConfigurationService();
 
@@ -19,9 +21,6 @@ program
     .description('Displays current version of the CLI')
     .action(function(){
         printVersion();
-        const os = require('os');
-
-        console.log(os.homedir());
     })
 
 program
