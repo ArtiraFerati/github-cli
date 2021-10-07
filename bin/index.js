@@ -5,19 +5,19 @@ const print = require('./print');
 const printVersion = require('./print-version');
 const ConfigurationService = require('./configuration-service');
 var configuration = new ConfigurationService();
-const getUser = require('./get-username');
+const getUser = require('./user-service');
 
 program
     .command('credits')
     .description('Displays github-cli credits')
-    .action(function(){
+    .action(() => {
         print.displayCredits();
     })
 
 program
     .command('version')
     .description('Displays current version of the CLI')
-    .action(function(){
+    .action(() => {
         printVersion.version();
     })
 
@@ -26,7 +26,7 @@ program
     .description('Create configuration')
     .argument('<username>', 'username')
     .argument('<token>', 'token')
-    .action(function(username, token){
+    .action((username, token) => {
         configuration.createConfiguration(username, token);
     })
 
@@ -34,7 +34,7 @@ program
     .command('username')
     .description('Get user *username*')
     .argument('username' , 'user')
-    .action(function(user){
+    .action((user) => {
         getUser.getUserByUsername(user);
     })
 
