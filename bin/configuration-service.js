@@ -9,7 +9,8 @@ const directory = 'gh';
 const fullPath = `${homeDir}/${directory}/config`;
 
 class ConfigurationService {
-    createConfiguration(username, token){
+
+    createConfiguration = (username, token) => {
         var content = { username, token }; 
         var stringifiedContent = JSON.stringify(content);
 
@@ -22,7 +23,7 @@ class ConfigurationService {
         }  
     };
 
-    readConfiguration(){
+    readConfiguration = () => {
         var data = fileService.readStringFile(fullPath);
         return JSON.parse(data);
     }
