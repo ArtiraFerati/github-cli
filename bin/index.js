@@ -10,16 +10,12 @@ const getUser = require('./user-service');
 program
     .command('credits')
     .description('Displays github-cli credits')
-    .action(() => {
-        print.displayCredits();
-    })
+    .action(() => print.displayCredits())
 
 program
     .command('version')
     .description('Displays current version of the CLI')
-    .action(() => {
-        printVersion.version();
-    })
+    .action(() => printVersion.version())
 
 program
     .command('create')
@@ -32,11 +28,10 @@ program
 
 program
     .command('username')
-    .description('Get user *username*')
+    .description('Get user info')
     .argument('username' , 'user')
-    .action((user) => {
-        getUser.getUserByUsername(user);
-    })
+    .action(user => getUser.getUserByUsername(user))
 
 program.parse(process.argv);
+
 
