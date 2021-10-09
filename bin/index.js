@@ -33,4 +33,3 @@ program
     .action(user => getUser.getUserByUsername(user))
 
 program.parse(process.argv);
-
