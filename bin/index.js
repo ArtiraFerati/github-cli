@@ -4,10 +4,6 @@ const program = require('commander');
 const print = require('./print');
 const printVersion = require('./print-version');
 const ConfigurationService = require('./configuration-service');
-<<<<<<< HEAD
-
-=======
->>>>>>> feature/CLI-11-Add-get-user-username-command
 var configuration = new ConfigurationService();
 const getUser = require('./user-service');
 
