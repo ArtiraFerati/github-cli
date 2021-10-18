@@ -40,4 +40,11 @@ program
   .argument('username', 'user')
   .action((user) => getUser.getRepositoriesByUsername(user));
 
+program
+  .command('repository')
+  .description('Get repository info')
+  .argument('username', 'user')
+  .argument('repo', 'repo')
+  .action((user, repo) => getUser.getRepositoryInfo(user, repo));
+
 program.parse(process.argv);
