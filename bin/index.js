@@ -34,4 +34,10 @@ program
   .argument('username', 'user')
   .action((user) => getUser.getUserByUsername(user));
 
+program
+  .command('repositories')
+  .description('Get user repositories')
+  .argument('username', 'user')
+  .action((user) => getUser.getRepositoriesByUsername(user));
+
 program.parse(process.argv);
