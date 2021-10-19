@@ -1,10 +1,13 @@
+require('dotenv').config();
+
 const axios = require('axios');
+const githubApi =  process.env.GITHUB_API;
 
 const getUserByUsername = (username) => {
-    return axios.get(`https://api.github.com/users/${username}`)
+    return axios.get(`${githubApi}/users/${username}`)
         .then((response) => {
             const data = response.data;
-
+            console.log(githubApi);
             console.log(`Name:  ${data.name}`);
             console.log(`Company: ${data.company}`);
             console.log(`Email: ${data.email}`);
@@ -13,11 +16,11 @@ const getUserByUsername = (username) => {
 };
 
 const getRepositoriesByUsername = (username) => {
-    return axios.get(`https://api.github.com/users/${username}/repos`)
+    return axios.get(`${githubApi}/users/${username}/repos`)
         .then((response) => {
             const data = response.data;
 
-            data.array.forEach((repo) => {
+            data.forEach((repo) => {
                 console.log(`Repository name: ${repo.name}`);
                 console.log(`Repository URL: ${repo.html_url}`);
                 console.log(`Repository description: ${repo.description}`);
@@ -27,14 +30,14 @@ const getRepositoriesByUsername = (username) => {
 };
 
 const getRepositoryInfo = async (username, repo) => {
-    return axios.get(`https://api.github.com/repos/${username}/${repo}`)
+    return axios.get(`${githubApi}/repos/${username}/${repo}`)
         .then((response) => {
             const data = response.data;
             console.log(`Repository name: ${data.name}`);
             console.log(`Languages: ${data.language}`);
             console.log(`Repository description: ${data.description}`);
 
-            return axios.get(`https://api.github.com/repos/${username}/${repo}/contributors`)
+            return axios.get(`${githubApi}/repos/${username}/${repo}/contributors`)
                 .then((resp) => {
                     const contributionsData = resp.data; 
 
