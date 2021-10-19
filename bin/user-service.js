@@ -60,6 +60,7 @@ const getRepositoryIssues = async (username, repo) => {
                 console.log("URL:", item.html_url);
                 console.log("Created at:", item.created_at);
 
+                console.log("Labels");
                 item.labels.forEach((label) => {
                     console.log("Name: ", label.name);
                     console.log("Description: ", label.description);
