@@ -47,13 +47,18 @@ program
   .argument('repo', 'repo')
   .action((user, repo) => getUser.getRepositoryInfo(user, repo));
 
-  
+program
+  .command('pulls')
+  .description('Get repository pulls')
+  .argument('username', 'user')
+  .argument('repo', 'repo')
+  .action((user, repo) => getUser.getRepositoryPulls(user, repo));
+
 program
   .command('issues')
   .description('Get repository issues')
   .argument('username', 'user')
   .argument('repo', 'repo')
   .action((user, repo) => getUser.getRepositoryIssues(user, repo));
-
 
 program.parse(process.argv);
