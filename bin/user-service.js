@@ -49,4 +49,25 @@ const getRepositoryInfo = async (username, repo) => {
         });
 };
 
-module.exports = { getUserByUsername, getRepositoriesByUsername, getRepositoryInfo };
+const getRepositoryIssues = async (username, repo) => {
+    return axios.get(`${githubApi}/repos/${username}/${repo}/issues`)
+        .then((response) => {
+            const data = response.data;
+
+            data.forEach((item) => {
+                console.log("Title:", item.title);
+                console.log("User:", item.user.login);
+                console.log("URL:", item.html_url);
+                console.log("Created at:", item.created_at);
+
+                item.labels.forEach((label) => {
+                    console.log("Name: ", label.name);
+                    console.log("Description: ", label.description);
+                });
+
+                console.log("State:", item.state + "\n");
+            });
+        })
+};
+
+module.exports = { getUserByUsername, getRepositoriesByUsername, getRepositoryInfo, getRepositoryIssues};
