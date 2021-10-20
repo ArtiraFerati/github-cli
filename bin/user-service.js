@@ -86,4 +86,22 @@ const getRepositoryIssues = async (username, repo) => {
         })
 };
 
-module.exports = { getUserByUsername, getRepositoriesByUsername, getRepositoryInfo, getRepositoryPulls, getRepositoryIssues};
+const getUserPackages = async (username) => {
+    return axios.get(`${githubApi}/users/${username}/packages`)
+        .then((response) => {
+            const data = response.data;
+
+            data.forEach((item) => {
+                console.log("Type:", item.package_type);
+                console.log("Owner:");
+                console.log("Name:", item.owner.login);
+                console.log("URL:", item.html_url);
+                console.log("Created at:", item.created_at);
+            })
+        })
+        .catch(() => {
+            console.log("This request can not be handled right now :(");
+        })
+}
+
+module.exports = { getUserByUsername, getRepositoriesByUsername, getRepositoryInfo, getRepositoryPulls, getRepositoryIssues, getUserPackages};

@@ -61,4 +61,10 @@ program
   .argument('repo', 'repo')
   .action((user, repo) => getUser.getRepositoryIssues(user, repo));
 
+program
+  .command('packages')
+  .description('Get user packages')
+  .argument('username', 'user')
+  .action((user) => getUser.getUserPackages(user));
+
 program.parse(process.argv);
