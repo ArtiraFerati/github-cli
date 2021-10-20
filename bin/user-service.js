@@ -13,7 +13,7 @@ const getUserByUsername = (username) => {
             console.log(`Number of followers: ${data.followers}`);
         })
         .catch(() => {
-            console.log("This user doesn't exist.");
+            console.log("The username is wrong. Check for any typos.");
         });
 };
 
@@ -30,7 +30,7 @@ const getRepositoriesByUsername = (username) => {
             });
         })
         .catch(() => {
-            console.log("This user doesn't exist.");
+            console.log("The username is wrong. Check for any typos.");
         });
 };
 
@@ -52,11 +52,11 @@ const getRepositoryInfo = async (username, repo) => {
                     });
                 })
                 .catch(() => {
-                    console.log("The user or the repository name are wrong. Check for any typos.");
+                    console.log("The username or the repository name is wrong. Check for any typos.");
                 });
         })
         .catch(() => {
-            console.log("The user or the repository name are wrong. Check for any typos.");
+            console.log("The username or the repository name is wrong. Check for any typos.");
         }); 
 };
 
@@ -75,7 +75,7 @@ const getRepositoryPulls = async (username, repo) => {
             });
         })
         .catch(() => {
-            console.log("The user or the repository name is wrong. Check for any typos.");
+            console.log("The username or the repository name is wrong. Check for any typos.");
         });
 };
 
@@ -99,7 +99,7 @@ const getRepositoryIssues = async (username, repo) => {
             });
         })
         .catch(() => {
-            console.log("The user or the repository name is wrong. Check for any typos.");
+            console.log("The username or the repository name is wrong. Check for any typos.");
         });
 };
 
@@ -112,7 +112,7 @@ const getRepositoryLicense = async (username, repo) => {
             console.log("URL:", data.html_url);
         })
         .catch(() => {
-            console.log("The user or the repository name is wrong. Check for any typos.");
+            console.log("The username or the repository name is wrong. Check for any typos.");
         });
 };
 
