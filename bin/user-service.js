@@ -86,4 +86,14 @@ const getRepositoryIssues = async (username, repo) => {
         })
 };
 
-module.exports = { getUserByUsername, getRepositoriesByUsername, getRepositoryInfo, getRepositoryPulls, getRepositoryIssues};
+const getRepositoryLicense = async (username, repo) => {
+    return axios.get(`${githubApi}/repos/${username}/${repo}/license`)
+        .then((response) => {
+            const data = response.data;
+
+            console.log("Name: ", data.license.name);
+            console.log("URL:", data.html_url);
+        })
+};
+
+module.exports = { getUserByUsername, getRepositoriesByUsername, getRepositoryInfo, getRepositoryPulls, getRepositoryIssues, getRepositoryLicense};
