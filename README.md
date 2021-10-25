@@ -30,48 +30,48 @@ Creates configuration
 github-cli create
 ```
 
-Display user information - Name, Company, Email, Number of followers
+Displays user information - Name, Company, Email, Number of followers
 
 ```sh
 github-cli username
 ```
 
-Display list of user repositories
+Displays list of user repositories
 
 ```sh
 github-cli repositories
 ```
 
-Display specific repository info
+Displays specific repository info
 
 ```sh
 github-cli repostiory   
 ```
 
-Display list of repository pulls
+Displays list of repository pulls
 
 ```sh
 github-cli pulls
 ```
 
-Display list of repository issues
+Displays list of repository issues
 
 ```sh
 github-cli issues
 ```
 
-Display list of repository packages
+Displays list of repository packages
 ```sh
 github-cli package
 ```
 
-Display repository license info - Name, URL
+Displays repository license info - Name, URL
 
 ```sh
 github-cli licence
 ```
 
-Display repository releases
+Displays repository releases
 
 ```sh
 github-cli releases
