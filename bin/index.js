@@ -62,6 +62,13 @@ program
   .action((user, repo) => getUser.getRepositoryIssues(user, repo));
 
 program
+  .command('license')
+  .description('Get repository license info')
+  .argument('username', 'user')
+  .argument('repo', 'repo')
+  .action((user, repo) => getUser.getRepositoryLicense(user, repo));
+
+program
   .command('releases')
   .description('Get repository releases')
   .argument('username', 'user')
