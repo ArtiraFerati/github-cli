@@ -86,4 +86,20 @@ const getRepositoryIssues = async (username, repo) => {
         })
 };
 
-module.exports = { getUserByUsername, getRepositoriesByUsername, getRepositoryInfo, getRepositoryPulls, getRepositoryIssues};
+const getRepositoryReleases = async (username, repo) => {
+    return axios.get(`${githubApi}/repos/${username}/${repo}/releases`)
+        .then((response) => {
+            const data = response.data;
+
+            data.forEach((item) => {
+                console.log("URL:", item.html_url);
+                console.log("Created at:", item.created_at);
+                console.log("Author name: ", item.author.login + "\n");
+            });
+        })
+        .catch(() => {
+            console.log("No releases.");
+        })
+};
+
+module.exports = { getUserByUsername, getRepositoriesByUsername, getRepositoryInfo, getRepositoryPulls, getRepositoryIssues, getRepositoryReleases};

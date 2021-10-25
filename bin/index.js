@@ -61,4 +61,11 @@ program
   .argument('repo', 'repo')
   .action((user, repo) => getUser.getRepositoryIssues(user, repo));
 
+program
+  .command('releases')
+  .description('Get repository releases')
+  .argument('username', 'user')
+  .argument('repo', 'repo')
+  .action((user, repo) => getUser.getRepositoryReleases(user, repo));
+
 program.parse(process.argv);
