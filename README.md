@@ -4,7 +4,7 @@
 Command Line Application created for easier access to github users and repository info using the Github API
 https://docs.github.com/en/rest/.
 
-Created with: 
+Created with
 - Node.js
 
 
