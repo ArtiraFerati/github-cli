@@ -7,11 +7,13 @@ const getUserByUsername = (username) => {
     return axios.get(`${githubApi}/users/${username}`)
         .then((response) => {
             const data = response.data;
-            console.log(githubApi);
             console.log(`Name:  ${data.name}`);
             console.log(`Company: ${data.company}`);
             console.log(`Email: ${data.email}`);
             console.log(`Number of followers: ${data.followers}`);
+        })
+        .catch(() => {
+            console.log("The username is wrong. Check for any typos.");
         });
 };
 
@@ -26,6 +28,9 @@ const getRepositoriesByUsername = (username) => {
                 console.log(`Repository description: ${repo.description}`);
                 console.log('\n');
             });
+        })
+        .catch(() => {
+            console.log("The username is wrong. Check for any typos.");
         });
 };
 
@@ -45,8 +50,14 @@ const getRepositoryInfo = async (username, repo) => {
                         console.log(`Repository contributors: ${con.login}`);
                         console.log(`Number of contributions: ${con.contributions}`); 
                     });
+                })
+                .catch(() => {
+                    console.log("The username or the repository name is wrong. Check for any typos.");
                 });
-        });
+        })
+        .catch(() => {
+            console.log("The username or the repository name is wrong. Check for any typos.");
+        }); 
 };
 
 const getRepositoryPulls = async (username, repo) => {
@@ -63,6 +74,9 @@ const getRepositoryPulls = async (username, repo) => {
                 console.log("State:", item.state + "\n");
             });
         })
+        .catch(() => {
+            console.log("The username or the repository name is wrong. Check for any typos.");
+        });
 };
 
 const getRepositoryIssues = async (username, repo) => {
@@ -84,6 +98,38 @@ const getRepositoryIssues = async (username, repo) => {
                 console.log("State:", item.state + "\n");
             });
         })
+        .catch(() => {
+            console.log("The username or the repository name is wrong. Check for any typos.");
+        });
+};
+
+const getRepositoryLicense = async (username, repo) => {
+    return axios.get(`${githubApi}/repos/${username}/${repo}/license`)
+        .then((response) => {
+            const data = response.data;
+
+            console.log("Name: ", data.license.name);
+            console.log("URL:", data.html_url);
+        })
+        .catch(() => {
+            console.log("The username or the repository name is wrong. Check for any typos.");
+        });
+};
+
+const getRepositoryReleases = async (username, repo) => {
+    return axios.get(`${githubApi}/repos/${username}/${repo}/releases`)
+        .then((response) => {
+            const data = response.data;
+
+            data.forEach((item) => {
+                console.log("URL:", item.html_url);
+                console.log("Created at:", item.created_at);
+                console.log("Author name: ", item.author.login + "\n");
+            });
+        })
+        .catch(() => {
+            console.log("No releases.");
+        })
 };
 
 const getUserPackages = async (username) => {
@@ -102,6 +148,7 @@ const getUserPackages = async (username) => {
         .catch(() => {
             console.log("The username is wrong. Check for any typos.");
         })
-}
+};
 
-module.exports = { getUserByUsername, getRepositoriesByUsername, getRepositoryInfo, getRepositoryPulls, getRepositoryIssues, getUserPackages};
+module.exports = { getUserByUsername, getRepositoriesByUsername, getRepositoryInfo, getRepositoryPulls, getRepositoryIssues, getRepositoryLicense,  getRepositoryReleases, getUserPackages};
+
