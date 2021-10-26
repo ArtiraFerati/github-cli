@@ -100,7 +100,7 @@ const getUserPackages = async (username) => {
             })
         })
         .catch(() => {
-            console.log("This request can not be handled right now :(");
+            console.log("The username is wrong. Check for any typos.");
         })
 }
 
