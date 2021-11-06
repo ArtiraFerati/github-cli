@@ -49,7 +49,7 @@ program
 
 program
   .command('pull-requests')
-  .description('Get repository pulls')
+  .description('Get repository pull requests')
   .argument('username', 'user')
   .argument('repo', 'repo')
   .action((user, repo) => getUser.getRepositoryPulls(user, repo));
