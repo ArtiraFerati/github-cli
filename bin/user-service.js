@@ -132,4 +132,23 @@ const getRepositoryReleases = async (username, repo) => {
         })
 };
 
-module.exports = { getUserByUsername, getRepositoriesByUsername, getRepositoryInfo, getRepositoryPulls, getRepositoryIssues, getRepositoryLicense,  getRepositoryReleases};
+const getUserPackages = async (username) => {
+    return axios.get(`${githubApi}/users/${username}/packages`)
+        .then((response) => {
+            const data = response.data;
+
+            data.forEach((item) => {
+                console.log("Type:", item.package_type);
+                console.log("Owner:");
+                console.log("Name:", item.owner.login);
+                console.log("URL:", item.html_url);
+                console.log("Created at:", item.created_at);
+            })
+        })
+        .catch(() => {
+            console.log("The username is wrong. Check for any typos.");
+        })
+};
+
+module.exports = { getUserByUsername, getRepositoriesByUsername, getRepositoryInfo, getRepositoryPulls, getRepositoryIssues, getRepositoryLicense,  getRepositoryReleases, getUserPackages};
+
