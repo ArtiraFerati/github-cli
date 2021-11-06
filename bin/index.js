@@ -48,8 +48,8 @@ program
   .action((user, repo) => getUser.getRepositoryInfo(user, repo));
 
 program
-  .command('pulls')
-  .description('Get repository pulls')
+  .command('pull-requests')
+  .description('Get repository pull requests')
   .argument('username', 'user')
   .argument('repo', 'repo')
   .action((user, repo) => getUser.getRepositoryPulls(user, repo));
