@@ -63,7 +63,7 @@ github-cli issues <b>username</b>/<b>repository</b>
 Displays list of repository packages
 
 <pre>
-github-cli package 
+github-cli package <b>username</b>
 </pre>
 
 Displays repository license info - Name, URL
