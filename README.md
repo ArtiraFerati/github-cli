@@ -45,7 +45,7 @@ github-cli repositories <b>username</b>
 Displays specific repository info
 
 <pre>
-github-cli repostiory <b>username**</b> / <b>repository</b>
+github-cli repostiory <b>username</b> / <b>repository</b>
 </pre>
 
 Displays list of repository pull requests
@@ -64,7 +64,7 @@ Displays list of repository packages
 
 <pre>
 github-cli package 
-<pre>
+</pre>
 
 Displays repository license info - Name, URL
 
