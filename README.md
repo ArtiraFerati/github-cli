@@ -20,61 +20,60 @@ github-cli credits
 
 Displays current version of the github-cli
 
-<pre> <b> version</b></pre>
-
-```sh
+<pre>
 github-cli version
-```
+</pre>
 
 Creates configuration
 
-```sh
+<pre>
 github-cli create
-```
+</pre>
 
 Displays user information - Name, Company, Email, Number of followers
 
-```sh
-github-cli username **username**
-```
+<pre>
+github-cli username <b>username</b>
+</pre>
 
 Displays list of user repositories
 
-```sh
-github-cli repositories **username**
-```
+<pre>
+github-cli repositories <b>username</b>
+</pre>
 
 Displays specific repository info
 
-```sh
-github-cli repostiory **username** / **repository**
-```
+<pre>
+github-cli repostiory <b>username**</b> / <b>repository</b>
+</pre>
 
 Displays list of repository pull requests
 
-```sh
-github-cli pull-requests **username** / **repository**
-```
+<pre>
+github-cli pull-requests <b>username</b> / <b>repository</b>
+</pre>
 
 Displays list of repository issues 
 
-```sh
-github-cli issues **username** / **repository**
-```
+<pre>
+github-cli issues <b>username</b> / <b>repository</b>
+</pre>
 
 Displays list of repository packages
-```sh
+
+<pre>
 github-cli package 
-```
+<pre>
 
 Displays repository license info - Name, URL
 
-```sh
-github-cli licence **username** / **repository**
-```
+<pre>
+github-cli licence <b>username</b> / <b>repository</b>
+</pre>
 
 Displays repository releases
 
-```sh
-github-cli releases **username** / **repository**
-```
+<pre>
+github-cli releases <b>username</b> / <b>repository</b>
+</pre>
