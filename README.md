@@ -45,19 +45,19 @@ github-cli repositories <b>username</b>
 Displays specific repository info
 
 <pre>
-github-cli repostiory <b>username</b> / <b>repository</b>
+github-cli repostiory <b>username</b>/<b>repository</b>
 </pre>
 
 Displays list of repository pull requests
 
 <pre>
-github-cli pull-requests <b>username</b> / <b>repository</b>
+github-cli pull-requests <b>username</b>/<b>repository</b>
 </pre>
 
 Displays list of repository issues 
 
 <pre>
-github-cli issues <b>username</b> / <b>repository</b>
+github-cli issues <b>username</b>/<b>repository</b>
 </pre>
 
 Displays list of repository packages
@@ -69,11 +69,11 @@ github-cli package
 Displays repository license info - Name, URL
 
 <pre>
-github-cli licence <b>username</b> / <b>repository</b>
+github-cli licence <b>username</b>/<b>repository</b>
 </pre>
 
 Displays repository releases
 
 <pre>
-github-cli releases <b>username</b> / <b>repository</b>
+github-cli releases <b>username</b>/<b>repository</b>
 </pre>
