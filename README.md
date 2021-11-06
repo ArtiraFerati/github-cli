@@ -33,46 +33,46 @@ github-cli create
 Displays user information - Name, Company, Email, Number of followers
 
 ```sh
-github-cli username
+github-cli username **username**
 ```
 
 Displays list of user repositories
 
 ```sh
-github-cli repositories
+github-cli repositories **username**
 ```
 
 Displays specific repository info
 
 ```sh
-github-cli repostiory   
+github-cli repostiory **username** / **repository**
 ```
 
-Displays list of repository pulls
+Displays list of repository pull requests
 
 ```sh
-github-cli pulls
+github-cli pull-requests **username** / **repository**
 ```
 
-Displays list of repository issues
+Displays list of repository issues 
 
 ```sh
-github-cli issues
+github-cli issues **username** / **repository**
 ```
 
 Displays list of repository packages
 ```sh
-github-cli package
+github-cli package 
 ```
 
 Displays repository license info - Name, URL
 
 ```sh
-github-cli licence
+github-cli licence **username** / **repository**
 ```
 
 Displays repository releases
 
 ```sh
-github-cli releases
+github-cli releases **username** / **repository**
 ```
