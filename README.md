@@ -20,6 +20,8 @@ github-cli credits
 
 Displays current version of the github-cli
 
+<pre> <b> version</b></pre>
+
 ```sh
 github-cli version
 ```
